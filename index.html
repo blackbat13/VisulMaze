@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VisulMaze</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <script type="module">
+        import * as maze from './__target__/maze.js';
+
+        window.maze = maze.maze;
+    </script>
+</head>
+<body>
+<div id="container">
+    <div class="row">
+        <div id="maze_div">
+            <canvas id="maze_canvas"></canvas>
+        </div>
+        <div id="settings_div">
+            <h2>Maze Settings</h2>
+            <form id="settings_form">
+
+                <div class="form-group">
+                    <button type="button" id="reset_button" class="btn btn-lg btn-primary"
+                            onclick="maze.generate();">
+                        Generate maze
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="author_div">
+        <div>
+            <p>&copy; 2022 Damian Kurpiewski</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
