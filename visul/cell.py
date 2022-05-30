@@ -7,7 +7,8 @@ class Cell:
         self._sides = [True for _ in range(4)]
         self._width = width
         self._height = height
-        self._movement = [(1, 0), (0, -1), (-1, 0), (0, 1)]
+        self._movement = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+        self._visited = False
 
     @property
     def pos(self) -> Point:
@@ -16,6 +17,14 @@ class Cell:
     @property
     def sides(self) -> list:
         return self._sides
+
+    @property
+    def visited(self) -> bool:
+        return self._visited
+
+    @visited.setter
+    def visited(self, value: bool):
+        self._visited = value
 
     def draw(self, context):
         context.beginPath()
@@ -33,3 +42,6 @@ class Cell:
             x, y = nx, ny
 
         context.stroke()
+
+    def remove_side(self, side: int):
+        self._sides[side] = False

@@ -5,7 +5,7 @@
 
 #maze_div {
     width: 80vw;
-    height: 65vh;
+    height: 100vh;
     position: absolute;
     left: 0;
     top: 0;
@@ -13,7 +13,7 @@
 
 #settings_div {
     width: 20vw;
-    height: 65vh;
+    height: 95vh;
     position: absolute;
     top: 0;
     right: 0;
@@ -28,11 +28,11 @@
 }
 
 #author_div {
-    width: 100vw;
+    width: 20vw;
     height: 5vh;
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
     background-color: #c7fdba;
 }
 

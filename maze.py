@@ -1,5 +1,6 @@
 from settings import Settings
 from visul.grid import Grid
+import random
 
 
 class Maze:
@@ -17,8 +18,26 @@ class Maze:
         self._grid = None
 
     def generate(self):
-        self._grid = Grid(self._canvas.width, self._canvas.height, 50, 50)
+        self._grid = Grid(self._canvas.width, self._canvas.height, 30, 30)
+        self.recursive_backtracker(0, 0)
         self._grid.draw(self._context)
+
+    def recursive_backtracker(self, row: int, col: int):
+        if self._grid.is_visited(row, col):
+            return
+
+        self._grid.mark_as_visited(row, col)
+        movement = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+        random.shuffle(movement)
+
+        for move in movement:
+            nrow = row + move[0]
+            ncol = col + move[1]
+            if not self._grid.in_grid(nrow, ncol) or self._grid.is_visited(nrow, ncol):
+                continue
+
+            self._grid.make_path(row, col, nrow, ncol)
+            self.recursive_backtracker(nrow, ncol)
 
 
 maze = Maze()
